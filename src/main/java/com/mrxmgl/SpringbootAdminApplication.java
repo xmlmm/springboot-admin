@@ -10,7 +10,7 @@ public class SpringbootAdminApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootAdminApplication.class, args);
-		System.out.println("springboot-admin：----------------------------");
+		System.out.println("springboot-admin：----------------------------http://localhost:8082/admin/sys/login");
 	}
 
 }
