@@ -3,10 +3,9 @@ package com.mrxmgl.controller;
 import com.mrxmgl.feign.IDemoClient;
 import com.mrxmgl.model.SysUser;
 import com.mrxmgl.service.ISysUserService;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -22,11 +21,11 @@ public class SysUserController {
 	private ISysUserService iSysUserService;
 
 	@RequestMapping(value = "/login")
-	public String login() {
+	public String login(Model model) {
 //		String result = iDemoClient.demoService("springboot-admin服务尝试申请调用springboot-fygl服务");
 //		System.out.println("-----------------------"+result);
 		List<SysUser> userList = iSysUserService.queryDatas();
-		System.out.println("-----------------------"+userList);
+		model.addAttribute("userList", userList);
 		return "login";
 	}
 
